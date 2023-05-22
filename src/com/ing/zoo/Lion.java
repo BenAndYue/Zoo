@@ -1,23 +1,23 @@
 package com.ing.zoo;
 
-public class Lion {
-    public String name;
-    public String helloText;
-    public String eatText;
-
-    public Lion()
-    {
+public class Lion extends Animal {
+    public Lion() {
     }
 
-    public void sayHello()
-    {
-        helloText = "roooaoaaaaar";
-        System.out.println(helloText);
+    @Override
+    public void sayHello() {
+        System.out.println("Lion says hello");
     }
 
-    public void eatMeat()
-    {
-        eatText = "nomnomnom thx mate";
-        System.out.println(eatText);
+    @Override
+    public void eat() {
+        System.out.println("Lion eats");
+    }
+
+    @Override
+    public boolean isValidCommand(String command) {
+        return command.equals("hello " + name) || command.equals("give meat");
     }
 }
+
+// Repeat the same modifications for Hippo, Pig, Tiger, and Zebra classes

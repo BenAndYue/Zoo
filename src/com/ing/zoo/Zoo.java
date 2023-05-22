@@ -3,8 +3,7 @@ package com.ing.zoo;
 import java.util.Scanner;
 
 public class Zoo {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         String[] commands = new String[4];
         commands[0] = "hello";
         commands[1] = "give leaves";
@@ -26,13 +25,27 @@ public class Zoo {
         System.out.print("Voer uw command in: ");
 
         String input = scanner.nextLine();
-        if(input.equals(commands[0] + " henk"))
-        {
-            henk.sayHello();
-        }
-        else
-        {
-            System.out.println("Unknown command: " + input);
-        }
-    }
-}
+        if (input.startsWith(commands[0])) {
+            String[] inputParts = input.split(" ");
+            if (inputParts.length > 1) {
+                String animalName = inputParts[1];
+                Animal animal = null;
+                if (animalName.equals(henk.name)) {
+                    animal = henk;
+                } else if (animalName.equals(elsa.name)) {
+                    animal = elsa;
+                } else if (animalName.equals(dora.name)) {
+                    animal = dora;
+                } else if (animalName.equals(wally.name)) {
+                    animal = wally;
+                } else if (animalName.equals(marty.name)) {
+                    animal = marty;
+                }
+
+                if (animal != null && animal.isValidCommand(input)) {
+                    animal.sayHello();
+                } else {
+                    System.out.println("Unknown command: " + input);
+                }
+            } else {
+                System.out.println("Unknown command: "

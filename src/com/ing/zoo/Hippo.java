@@ -1,23 +1,21 @@
 package com.ing.zoo;
 
-public class Hippo {
-    public String name;
-    public String helloText;
-    public String eatText;
-
-    public Hippo()
-    {
+public class Hippo extends Animal {
+    public Hippo() {
     }
 
-    public void sayHello()
-    {
-        helloText = "splash";
-        System.out.println(helloText);
+    @Override
+    public void sayHello() {
+        System.out.println("Hippo says hello");
     }
 
-    public void eatLeaves()
-    {
-        eatText = "munch munch lovely";
-        System.out.println(eatText);
+    @Override
+    public void eat() {
+        System.out.println("Hippo eats");
+    }
+
+    @Override
+    public boolean isValidCommand(String command) {
+        return command.equals("hello " + name) || command.equals("give leaves");
     }
 }
